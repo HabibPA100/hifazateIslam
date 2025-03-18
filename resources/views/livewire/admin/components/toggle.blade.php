@@ -39,9 +39,18 @@
             <a href="{{ route('show.user') }}" wire:navigate >
             @livewire('admin.user-count')
             </a>
+           
+            <a href="{{ route('news.show') }}" wire:navigate >
             @livewire('admin.post-count')
+            </a>
+           
+            <a href="{{ route('pen.post.show') }}" wire:navigate >
             @livewire('admin.pen-count')
+            </a>
+           
+            <a href="{{ route('fatwa.show') }}" wire:navigate>
             @livewire('admin.fatwa-count')
+            </a>
         </div>
     </div>
 </div>

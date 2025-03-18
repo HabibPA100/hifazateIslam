@@ -39,7 +39,7 @@ class FatwaComponent extends Component
             $filteredPosts = [];
         
             foreach (array_slice($rows, 1) as $rowIndex => $row) { // রো নম্বর সংরক্ষণ
-                if (isset($row[3]) && $row[3] == $userId) {
+                if (isset($row[3]) && $row[3] == $userId || Auth::user()->role === "Admin") {
                     $row['original_index'] = $rowIndex + 2; // Google Sheets-এর আসল রো নম্বর সংরক্ষণ
                     $filteredPosts[] = $row;
                 }
@@ -77,8 +77,8 @@ class FatwaComponent extends Component
 
     public function editPost($index)
     {
-        if (isset($this->posts[$index])) {
-            if ($this->posts[$index][3] != Auth::id()) {
+        if (isset($this->posts[$index]) || Auth::user()->role === "Admin" ) {
+            if ($this->posts[$index][3] != Auth::id() && Auth::user()->role !== "Admin") {
                 $this->dispatch('toast', 'error', 'You can only edit your own post!');
                 return;
             }
@@ -109,7 +109,7 @@ class FatwaComponent extends Component
     
         // ✅ শুধুমাত্র নিজের পোস্ট এডিট করার অনুমতি দাও
         $postKey = array_search($rowIndex, array_column($this->posts, 'original_index'));
-        if ($this->posts[$postKey][3] != Auth::id()) {  
+        if ($this->posts[$postKey][3] != Auth::id() && Auth::user()->role !== "Admin") {  
             $this->dispatch('toast', 'error', 'You can only edit your own post!');  
             return;  
         }  
@@ -149,7 +149,7 @@ class FatwaComponent extends Component
         }
     
         // শুধুমাত্র নিজের পোস্ট ডিলিট করতে অনুমতি দিন
-        if ($this->posts[$index][3] != Auth::id()) {
+        if ($this->posts[$index][3] != Auth::id() && Auth::user()->role !== "Admin" ) {
             $this->dispatch('toast', 'error', 'You can only delete your own post!');
             return;
         }

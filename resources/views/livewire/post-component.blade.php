@@ -7,7 +7,7 @@
         <!-- Modal Toggle Button -->
         <div class="flex justify-end">
             <button 
-                class="px-4 py-2 text-white text-xl bg-red-700 rounded-md hover:bg-indigo-700 focus:outline-none"
+                class="px-4 py-2 text-xl text-white bg-red-700 rounded-md hover:bg-indigo-700 focus:outline-none"
                 wire:click="$set('showModal', true)"
             >
                 <span> নতুন খবর লিখুন </span>
@@ -25,7 +25,7 @@
         >
             <div class="relative w-full max-w-lg p-8 mx-auto bg-white rounded-lg shadow-xl">
                 <button 
-                    class="absolute text-gray-500 text-2xl top-4 right-4 hover:text-gray-700"
+                    class="absolute text-2xl text-gray-500 top-4 right-4 hover:text-gray-700"
                     @click="open = false"
                 >
                     &times;
@@ -46,7 +46,7 @@
                             >
                         </label>
                         @error('title')
-                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                        <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
     
@@ -58,11 +58,11 @@
                                 wire:model="content" 
                                 placeholder="Content" 
                                 required
-                                class="w-full px-4 py-3 text-lg placeholder-transparent border-2 border-gray-300 rounded-md resize-none peer focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                                class="w-full h-40 px-4 py-3 text-lg placeholder-transparent border-2 border-gray-300 rounded-md resize-none peer focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                             ></textarea>
                         </label>
                         @error('content')
-                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                        <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
     
@@ -74,7 +74,7 @@
                                 type="file" 
                                 wire:model="image"
                                 accept="image/*"
-                                class="w-full h-40 px-4 py-3 text-sm text-gray-600 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                                class="w-full px-4 py-3 text-sm text-gray-600 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                             >
                             <p class="mt-2 text-xs text-gray-400">Maximum file size: 10MB</p>
                         </label>
@@ -84,7 +84,7 @@
                             </div>
                         @endif
                         @error('image')
-                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                        <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
     
@@ -136,7 +136,7 @@
                     </div>
                 @endforeach
             @else
-                <p class="col-span-full text-center text-gray-600">No posts found.</p>
+                <p class="text-center text-gray-600 col-span-full">No posts found.</p>
             @endif
         </div>
         

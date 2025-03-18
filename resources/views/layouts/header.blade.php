@@ -16,7 +16,7 @@
             <a href="{{ url('/contact') }}" wire:navigate class="text-gray-700 transition hover:text-blue-600">
                 <i class="text-2xl fa-solid fa-phone-volume"></i>
             </a>
-            <a href="{{ route('register') }}" wire:navigate class="text-gray-700 transition hover:text-blue-600">
+            <a href="{{ route('login') }}" wire:navigate class="text-gray-700 transition hover:text-blue-600">
                 <i class="text-2xl fa-solid fa-globe"></i>
             </a> 
         </nav>
